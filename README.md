@@ -120,7 +120,7 @@ $ python3 accurate_model.py
 2
 ```
 
-**Q: Wait wait, so do I need connect it to the frontend?** :thinking::thinking:
+**Q: Wait wait, so do I need to connect it to the frontend?** :thinking::thinking:
 
 No, you don't need to handle any sorts of `http` requests and responds, as long as your model (preferably in the form of a function) takes in some input (could be multiple) and produces an output, everything is g!
 
@@ -128,23 +128,23 @@ No, you don't need to handle any sorts of `http` requests and responds, as long 
 
 Suppose you have created a model `logistic_regression.py`, you might ask yourself: "Where should I place this file?"
 
-The short answer is: Anywhere in `./backend`
+The short answer: Anywhere in `./backend`
 
-The long answer is: There might be an issue with top level imports in Python so it would be safer to do it in `./backend/models` instead.
+The long answer: There might be an issue with top level imports in Python so it would be safer to do it in `./backend/models` instead. But I will try to find a way to go around it and I will give you an update soon.
 
 ----
 
 ## :ledger: Additional notes
 
-1. If you are wondering how the backend interacts with your model, heres a quick rundown:
+#### 1. If you are wondering how the backend interacts with your model, heres a quick rundown:
 * `./models/views.py` Does the handling of requests and responses
 * `./models/urls.py` Maps a link to a particular function (which the frontend could call)
 
-2. The backend looks super bulky, is it necessary?
+#### 2. The backend looks super bulky, is it necessary?
 * No, but it looks good on your resume 
 * And of them are boilerplates from `Django` which is designed for advanced backend systems
 * But you could brag about making a "complex" backend in future interviews
 
-3. Henry, your documentation is actually enjoying to read like no cap
+#### 3. Henry, your documentation is actually enjoying to read like no cap
 * Thank you :blush: 
 * ~~Read my documentations from other projects if you're interested~~
