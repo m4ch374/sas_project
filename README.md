@@ -23,7 +23,8 @@ Everything I've said above is useless bc `SAS` literally copied the whole prompt
 
 #### Note: 
 ```
-Henry is dirt poor and could only afford apple juice as his only Apple product. Therefore the process of setting up the codebase *could* be inaccurate.
+Henry is dirt poor and could only afford apple juice as his only Apple 
+product. Therefore the process of setting up the codebase *could* be inaccurate.
 ``` 
 
 ### 1. Overview
