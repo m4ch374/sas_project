@@ -66,7 +66,7 @@ const Landing: React.FC = () => {
 
                 <Testimonial profilePic={AnnaProfile} profileName="Anna" position="Clerk"
                   twClassName="col-span-2">
-                  "I think Timmy is getting fired."
+                  "I think Timmy is getting fired, nice."
                 </Testimonial>
               </div>
 

@@ -24,8 +24,25 @@ const useThrottledHover = (mousePos: TMousePos={ x: 0, y: 0 }, delay=100) => {
   return throttledMouse
 }
 
+const useTypeWriterEffect = (fullTitle: string, delay=80) => {
+  const [title, setTitle] = useState("")
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setTitle(fullTitle.substring(0, title.length + 1))
+    }, delay)
+
+    return () => clearTimeout(timeout)
+  }, [title])
+
+  return title
+}
+
 const HoverSkewBanner: React.FC = () => {
   const container = useRef<HTMLDivElement>(null)
+
+  const typeWriterTitle = useTypeWriterEffect("Input customer info")
+  const debtToIncRatio = useTypeWriterEffect("2.33")
 
   const [mousePos, setMousePos] = useState<TMousePos>()
   const throttledMouse = useThrottledHover(mousePos)
@@ -57,7 +74,7 @@ const HoverSkewBanner: React.FC = () => {
       y: throttledMouse.y - refElemCenter.y
     }
 
-    const cap = 10
+    const cap = 20
     const skewInfo = {
       x: Math.min(cap, Math.max(cap * refMousePos.y / (refElem.clientHeight / 2), -cap)),
       y: Math.min(cap, Math.max(cap * refMousePos.x / (refElem.clientWidth / 2), -cap))
@@ -85,11 +102,14 @@ const HoverSkewBanner: React.FC = () => {
       onMouseMove={handleMouseOver}
       onMouseLeave={handleMouseLeave}
     >
-      <h1 className="text-4xl">This is a scorecard</h1>
-      <div className="text-3xl flex justify-center w-full h-full items-center text-center">
-        I have no idea what a scorecard should contain
-        Im literally a financial illiterate lol
+      <h1 className="text-4xl">{typeWriterTitle}<span className="animate-pulse">_</span></h1>
+      <div className="text-3xl">
+        <div className="text-xl">
+          <h3>Debt to income ratio:</h3>
+          <input placeholder={debtToIncRatio} className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
+        </div>
       </div>
+      <h1 className="relative top-10 text-2xl font-mono">Result: Financial Illiterate</h1>
     </div>
   )
 }
