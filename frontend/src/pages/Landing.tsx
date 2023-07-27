@@ -15,7 +15,7 @@ const Landing: React.FC = () => {
     <TransitionWrapper>
       <div className="">
         <NavBar>
-          <Link to={"/model"}
+          <Link to={"/auth"}
             className="
               flex 
               gap-2 
@@ -72,7 +72,7 @@ const Landing: React.FC = () => {
 
               <div className="w-full flex flex-col items-center mt-[80px] gap-8">
                   <h1 className="text-4xl">Excited? Get started now!</h1>
-                  <Link to={"/model"}
+                  <Link to={"/auth"}
                     className="
                       px-4
                       py-2
