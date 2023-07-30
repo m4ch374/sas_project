@@ -19,7 +19,7 @@ const useThrottledHover = (mousePos: TMousePos={ x: 0, y: 0 }, delay=100) => {
     setTimeout(() => {
       wait.current = false
     }, delay)
-  }, [mousePos.x, mousePos.y])
+  }, [delay, mousePos, mousePos.x, mousePos.y])
 
   return throttledMouse
 }
@@ -33,7 +33,7 @@ const useTypeWriterEffect = (fullTitle: string, delay=80) => {
     }, delay)
 
     return () => clearTimeout(timeout)
-  }, [title])
+  }, [delay, fullTitle, title])
 
   return title
 }
@@ -82,7 +82,7 @@ const HoverSkewBanner: React.FC = () => {
 
     container.current.style.transform = `perspective(900px) 
       rotateX(${skewInfo.x}deg) rotateY(${skewInfo.y}deg) `
-  }, [throttledMouse])
+  }, [mousePos, throttledMouse])
 
   return (
     <div ref={container} className="

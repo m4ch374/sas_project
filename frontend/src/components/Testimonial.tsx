@@ -10,7 +10,7 @@ type TTestimonial = {
 
 const Testimonial: React.FC<TTestimonial> = (prop) => {
   return (
-    <div className={`testimonial bg-slate-800 ${prop.twClassName}`}>
+    <div className={`testimonial bg-slate-800 ${prop.twClassName || ""}`}>
       <div className="flex gap-4 items-center">
         <img src={prop.profilePic} width="60px" className="rounded-full aspect-square object-cover" />
         <div>

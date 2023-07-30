@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Landing from './pages/Landing'
-import Model from './pages/Model'
+import Model from './pages/Not_Found'
 import { AnimatePresence } from 'framer-motion'
 import Auth from './pages/Auth'
 

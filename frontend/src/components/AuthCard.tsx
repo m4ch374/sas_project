@@ -2,30 +2,31 @@ import React, { useState } from "react";
 import Lock from "../assets/icons/Lock";
 import { useNavigate } from "react-router-dom";
 
+type TAuthInput = {
+  email: string
+  password: string 
+  username: string
+}
+
 const AuthCard: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true)
   const [errMsg, setErrMsg] = useState("")
+
+  const [formData, setFormData] = useState<TAuthInput>({
+    email: "",
+    password: "",
+    username: ""
+  })
 
   const navigate = useNavigate()
 
   const formSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
 
-    const userName = e.currentTarget.username
-    const email = e.currentTarget.email
-    const password = e.currentTarget.password 
-
-    // Defeats the purpose of Typescript lol
-    let payload: any = {
-      email: email.value,
-      password: password.value,
-    }
-
-    if (!isLogin) {
-      payload = {
-        ...payload,
-        username: userName.value
-      }
+    const payload: TAuthInput = {
+      email: formData.email,
+      password: formData.password,
+      username: formData.username
     }
 
     console.log(payload)
@@ -51,8 +52,7 @@ const AuthCard: React.FC = () => {
         {!isLogin &&
           <div>
             <label className="font-bold">Username:</label>
-            <input 
-              name="username"
+            <input
               type="text"
               className="shadow 
                 appearance-none 
@@ -66,14 +66,17 @@ const AuthCard: React.FC = () => {
                 focus:outline-none 
                 focus:shadow-outline
                 bg-slate-300" 
+              onChange={e => setFormData({
+                ...formData,
+                username: e.target.value
+              })}
             />
           </div>
         }
 
         <div>
           <label className="font-bold">Email:</label>
-          <input 
-            name="email"
+          <input
             type="email"
             className="shadow 
               appearance-none 
@@ -87,12 +90,15 @@ const AuthCard: React.FC = () => {
               focus:outline-none 
               focus:shadow-outline
               bg-slate-300" 
+            onChange={e => setFormData({
+              ...formData,
+              email: e.target.value
+            })}
           />
         </div>
         <div>
           <label className="font-bold">Password:</label>
-          <input 
-            name="password"
+          <input
             type="password"
             className="shadow 
               appearance-none 
@@ -106,6 +112,10 @@ const AuthCard: React.FC = () => {
               focus:outline-none 
               focus:shadow-outline
               bg-slate-300" 
+            onChange={e => setFormData({
+              ...formData,
+              password: e.target.value
+            })}
           />
         </div>
 
@@ -123,7 +133,7 @@ const AuthCard: React.FC = () => {
           }
         </button>
 
-        <button className="
+        <button type="submit" className="
           px-4 
           py-2 
           bg-blue-500 
