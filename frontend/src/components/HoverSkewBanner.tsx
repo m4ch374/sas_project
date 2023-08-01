@@ -42,7 +42,6 @@ const HoverSkewBanner: React.FC = () => {
   const container = useRef<HTMLDivElement>(null)
 
   const typeWriterTitle = useTypeWriterEffect("Input customer info")
-  const debtToIncRatio = useTypeWriterEffect("2.33")
 
   const [mousePos, setMousePos] = useState<TMousePos>()
   const throttledMouse = useThrottledHover(mousePos)
@@ -74,7 +73,7 @@ const HoverSkewBanner: React.FC = () => {
       y: throttledMouse.y - refElemCenter.y
     }
 
-    const cap = 20
+    const cap = 10
     const skewInfo = {
       x: Math.min(cap, Math.max(cap * refMousePos.y / (refElem.clientHeight / 2), -cap)),
       y: Math.min(cap, Math.max(cap * refMousePos.x / (refElem.clientWidth / 2), -cap))
@@ -86,8 +85,8 @@ const HoverSkewBanner: React.FC = () => {
 
   return (
     <div ref={container} className="
-        max-w-[1000px]
-        w-[90%]
+        max-w-[700px]
+        w-[80%]
         aspect-[2/1] 
         bg-[#f0f0f0]
         text-[#2b2b2b]
@@ -95,7 +94,7 @@ const HoverSkewBanner: React.FC = () => {
         transition-all
         duration-[100ms]
         hover:custom-drop-shadow
-        p-4
+        p-5
         flex
         flex-col
       "
@@ -103,13 +102,25 @@ const HoverSkewBanner: React.FC = () => {
       onMouseLeave={handleMouseLeave}
     >
       <h1 className="text-4xl">{typeWriterTitle}<span className="animate-pulse">_</span></h1>
-      <div className="text-3xl">
+      <div className="text-3xl flex flex-wrap gap-4 justify-between">
+        <div className="text-xl">
+          <h3>Loan amount (thousand):</h3>
+          <input placeholder="11000" className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
+        </div>
+        <div className="text-xl">
+          <h3>Mortgage due at:</h3>
+          <input placeholder="1/1/2024" className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
+        </div>
+        <div className="text-xl">
+          <h3>Job:</h3>
+          <input placeholder="Freelancer" className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
+        </div>
         <div className="text-xl">
           <h3>Debt to income ratio:</h3>
-          <input placeholder={debtToIncRatio} className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
+          <input placeholder="0.2" className="bg-slate-300 rounded-md placeholder:text-black/90 text-sm px-2 py-1.5 font-medium" />
         </div>
       </div>
-      <h1 className="relative top-10 text-2xl font-mono">Result: Financial Illiterate</h1>
+      <h3 className="mt-4 text-2xl animate-pulse">Calculating results:</h3>
     </div>
   )
 }

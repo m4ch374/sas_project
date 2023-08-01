@@ -2,7 +2,7 @@ import React from "react";
 import TransitionWrapper from "../components/TransitionWrapper";
 import Menherra from "/menhera_sorry.png"
 
-const Model: React.FC = () => {
+const NotFound: React.FC = () => {
   return (
     <TransitionWrapper>
       <div className="flex flex-col w-screen h-screen justify-center items-center">
@@ -13,4 +13,4 @@ const Model: React.FC = () => {
   )
 }
 
-export default Model
+export default NotFound

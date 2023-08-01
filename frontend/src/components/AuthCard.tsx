@@ -65,7 +65,7 @@ const AuthCard: React.FC = () => {
                 leading-tight 
                 focus:outline-none 
                 focus:shadow-outline
-                bg-slate-300" 
+                bg-slate-200" 
               onChange={e => setFormData({
                 ...formData,
                 username: e.target.value
@@ -89,7 +89,7 @@ const AuthCard: React.FC = () => {
               leading-tight 
               focus:outline-none 
               focus:shadow-outline
-              bg-slate-300" 
+              bg-slate-200" 
             onChange={e => setFormData({
               ...formData,
               email: e.target.value
@@ -111,7 +111,7 @@ const AuthCard: React.FC = () => {
               leading-tight 
               focus:outline-none 
               focus:shadow-outline
-              bg-slate-300" 
+              bg-slate-200" 
             onChange={e => setFormData({
               ...formData,
               password: e.target.value

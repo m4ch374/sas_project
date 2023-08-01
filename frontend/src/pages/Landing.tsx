@@ -51,22 +51,22 @@ const Landing: React.FC = () => {
               <div className="grid grid-cols-3 w-[80%] mt-[50px] gap-8">
                 <Testimonial profilePic={TimmyProfile} profileName="Timmy" position="Rizz manager"
                   twClassName="col-span-2">
-                  "Wow, I never thought I would be replacable!"
+                  "A very usable platform that helps me and my team!"
                 </Testimonial>
 
                 <Testimonial profilePic={BobProfile} profileName="Bob" position="CEO"
                   twClassName="col-span-1">
-                  "Let's fire Timmy!"
+                  "Great platform!"
                 </Testimonial>
 
                 <Testimonial profilePic={KavitkaProfile} profileName="Kavitka" position="Sanitation"
                   twClassName="col-span-1">
-                  "Timmy who?"
+                  "An interesting platform that allows us to move fast"
                 </Testimonial>
 
                 <Testimonial profilePic={AnnaProfile} profileName="Anna" position="Clerk"
                   twClassName="col-span-2">
-                  "I think Timmy is getting fired, nice."
+                  "With this platform, it alleviates a lot of my work."
                 </Testimonial>
               </div>
 
