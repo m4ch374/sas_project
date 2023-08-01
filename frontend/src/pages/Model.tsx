@@ -37,29 +37,31 @@ const Model: React.FC = () => {
 
   return (
     <TransitionWrapper>
-      <NavBar>
-        <Link 
-          to={'/'}
-          className="
-            text-2xl
-            border 
-            rounded-full
-            px-4
-            py-1
-            border-red-400
-            text-red-400
-          ">
-          Logout
-        </Link>
-      </NavBar>
+      <>
+        <NavBar>
+          <Link 
+            to={'/'}
+            className="
+              text-2xl
+              border 
+              rounded-full
+              px-4
+              py-1
+              border-red-400
+              text-red-400
+            ">
+            Logout
+          </Link>
+        </NavBar>
 
-      <div className="p-8 mt-[100px] flex justify-center">
-        {
-          setp == 0 ? <InfoInput afterHandle={afterHandle} /> :
-          setp == 1 ? <ShowScore score={score} /> :
-          undefined
-        }
-      </div>
+        <div className="p-8 mt-[100px] flex justify-center">
+          {
+            setp == 0 ? <InfoInput afterHandle={afterHandle} /> :
+            setp == 1 ? <ShowScore score={score} prev={prev} /> :
+            undefined
+          }
+        </div>
+      </>
     </TransitionWrapper>
   )
 }

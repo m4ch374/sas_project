@@ -27,7 +27,7 @@ const InfoInput: React.FC<{ afterHandle: (num: string) => void }> = ({ afterHand
       return
     }
 
-    const score = (Math.floor(Math.random() * 1000) * 0.1).toString()
+    const score = (Math.floor(Math.random() * 1000) * 0.1).toFixed(1).toString()
     setRes(new Map(res.set(key, score)))
     afterHandle(score)
   }
