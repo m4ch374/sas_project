@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import InfoInput from "../components/InfoInput";
 import ShowScore from "../components/ShowScore";
 import TransitionWrapper from "../components/TransitionWrapper";
+import { AnimatePresence } from "framer-motion";
 
 type TUseSteps = [number, () => void, () => void]
 
@@ -54,13 +55,17 @@ const Model: React.FC = () => {
           </Link>
         </NavBar>
 
-        <div className="p-8 mt-[100px] flex justify-center">
-          {
-            setp == 0 ? <InfoInput afterHandle={afterHandle} /> :
-            setp == 1 ? <ShowScore score={score} prev={prev} /> :
-            undefined
-          }
-        </div>
+          <div className="p-8 mt-[100px] flex justify-center">
+            <AnimatePresence initial={false} mode="wait">
+              <div className="bg-white w-[80%] max-w-[800px] text-black p-4 rounded-md min-h-[500px] flex flex-col">
+                {
+                  setp == 0 ? <InfoInput afterHandle={afterHandle} /> :
+                  setp == 1 ? <ShowScore score={score} prev={prev} /> :
+                  undefined
+                }
+              </div>
+            </AnimatePresence>
+          </div>
       </>
     </TransitionWrapper>
   )

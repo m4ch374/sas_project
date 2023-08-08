@@ -1,21 +1,23 @@
+import { motion } from "framer-motion";
 import React from "react";
-import { motion } from 'framer-motion'
 
-const TransitionWrapper: React.FC<{ children: JSX.Element, className?: string }> = ({ children }) => {
+const SwipeTransition: React.FC<{ children: JSX.Element, className?: string }> = ({ children }) => {
   const pageTransition = {
     out: {
       opacity: 0,
       transition: {
         duration: 0.25,
         delay: 0.2
-      }
+      },
+      x: 200
     },
     in: {
       opacity: 1,
       transition: {
         duration: 0.5,
         delay: 0.2
-      }
+      },
+      x: 0
     }
   }
 
@@ -31,4 +33,4 @@ const TransitionWrapper: React.FC<{ children: JSX.Element, className?: string }>
   )
 }
 
-export default TransitionWrapper
+export default SwipeTransition

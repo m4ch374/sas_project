@@ -1,4 +1,5 @@
 import React, { FormEventHandler, useState } from "react";
+import SwipeTransition from "./SwipeTransition";
 
 type TFormInput = {
   loan_amt: string,
@@ -27,13 +28,14 @@ const InfoInput: React.FC<{ afterHandle: (num: string) => void }> = ({ afterHand
       return
     }
 
-    const score = (Math.floor(Math.random() * 1000) * 0.1).toFixed(1).toString()
+    const score = ((Math.floor(Math.random() * 400) + 500) * 0.1).toFixed(1).toString()
     setRes(new Map(res.set(key, score)))
     afterHandle(score)
   }
 
   return (
-    <form onSubmit={submitHandler} className="bg-white w-[80%] max-w-[800px] text-black p-4 rounded-md min-h-[500px] flex flex-col">
+    <SwipeTransition>
+      <form onSubmit={submitHandler} className="w-full">
       <h1 className="text-3xl">Input customer info</h1>
       <div className="text-3xl h-[90%]">
         <div className="text-xl">
@@ -53,10 +55,11 @@ const InfoInput: React.FC<{ afterHandle: (num: string) => void }> = ({ afterHand
           <input onChange={e => setFormInput({...formInput, dti_ratio: e.target.value})} placeholder="0.2" className="bg-slate-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[80%] p-2 placeholder:text-black/90" />
         </div>
       </div>
-      <button className="relative -top-1 px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+      <button className="relative top-32 px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
         Proceed
       </button>
     </form>
+    </SwipeTransition>
   )
 }
 
